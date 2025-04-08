@@ -7,12 +7,13 @@ from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, Lea
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    base_url = 'https://fictional-barnacle-7v79775rp7jcwj7-8000.app.github.dev/'
     return Response({
-        'users': 'api/users/',
-        'teams': 'api/teams/',
-        'activities': 'api/activity/',
-        'leaderboard': 'api/leaderboard/',
-        'workouts': 'api/workouts/'
+        'users': base_url + 'api/users/',
+        'teams': base_url + 'api/teams/',
+        'activities': base_url + 'api/activity/',
+        'leaderboard': base_url + 'api/leaderboard/',
+        'workouts': base_url + 'api/workouts/'
     })
 
 class UserViewSet(viewsets.ModelViewSet):
